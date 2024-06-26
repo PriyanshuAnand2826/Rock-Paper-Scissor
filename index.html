@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style></style>
+  <title>Rock-Paper-Scissor</title>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+  <link rel="stylesheet" href="style.css">
+
+  
+ 
+
+</head>
+<body class="preload">
+  <div class="container">
+    <header class="header">
+      <div class="logo-name">
+        <p style="color: white;font-family: 'Roboto';font-size: 1.5rem;font-weight: bolder;">ROCK <br> PAPER <br> SCISSORS </p>
+      </div>
+      <div class="computer-score">
+        <div class="score-name">Computer Score </div>
+        <div id= "ai-score" class="score-number">0</div>
+      </div>
+      <div class="user-score">
+        <div class="score-name">Your Score </div>
+        <div id="your-score" class="score-number">0</div>
+      </div>
+    </header>
+
+    <!-- section for game  -->
+    <section class="game">
+
+      <!-- paper button -->
+      <button class="choice-btn" data-choice="rock">
+        <div class="choice rock">
+          <img src="./images/rock.png" alt="rock">
+        </div>
+      </button>
+
+      <!-- scissor button -->
+      <button class="choice-btn" data-choice="scissors">
+        <div class="choice scissors">
+          <img src="./images/scissors.png" alt="scissor">
+        </div>
+      </button>
+
+      <!-- rock button -->
+      <button class="choice-btn" data-choice="paper">
+        <div class="choice paper">
+          <img src="./images/paper.png" alt="paper">
+        </div>
+      </button>
+    </section>
+  </div>
+
+  <!-- to display the selected value by user and computer !! and also show thw results -->
+  <section class="results hidden">
+    <h2 class="results-heading">You picked</h2>
+    <h2 class="results-heading">Computer picked</h2>
+    <div class="results-result"></div>
+    <div class="results-winner hidden">
+      <h3 class="results-text"></h3>
+      <button class="play-again">Play again</button>
+    </div>
+    <div class="results-result"></div>
+  </section>
+
+
+  <!-- section for winning page for user -->
+  <section class="winner-user-section hidden">
+     <div class="winner-user-container">
+      <div class="img-container">
+        <img src="./images/stars.png" alt="">
+        <img class="winning-cup" src="./images/winning-cup.png" alt="">
+      </div>
+      <div class="text-container">
+        <h1 class="head-text">HURRAY!!</h1>
+        <p class="sub-text">you won the game </p>
+        <button class="play-btn">Play again</button>
+      </div>
+     </div>
+  </section>
+
+
+  <!-- div for game rules  -->
+   <div class="button-container">
+     <button class="rules-btn" tabindex="1">RULES</button>
+     <button class="next-btn hidden " tabindex="1">next</button>
+  </div>
+  <div class="modal">
+    <div class="modal__container">
+      <header class="modal__header">
+     <button class="close-btn">
+          <img style="height: 100px; width: 100px;" src="./images/close.png" alt="Close Button" />
+        </button>
+     </header>
+      <img
+        src="./images/game-rules.png"
+        alt="Rules Image"
+        class="rules-img"
+      />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
