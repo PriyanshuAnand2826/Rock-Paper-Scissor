@@ -1,4 +1,4 @@
-// Prevent animation on load
+//setting for animation not to load 
 setTimeout(() => {
   document.body.classList.remove("preload");
 }, 500);
@@ -10,7 +10,7 @@ const rules=document.querySelector('.modal')
 let userWin;
 
 
-//choices array to decide game logic
+//array making with object so that we can make game logic
 const CHOICES=[
   {
     name:'paper',
@@ -26,14 +26,14 @@ const CHOICES=[
   }
 ]
 
-// getting item from local storage 
+// storing scores in local storage  
   let playerScore = localStorage.getItem('playerScore') ? parseInt(localStorage.getItem('playerScore')) : 0;
   let computerScore = localStorage.getItem('computerScore') ? parseInt(localStorage.getItem('computerScore')) : 0;
 
   document.getElementById('your-score').textContent = playerScore;
   document.getElementById('ai-score').textContent = computerScore;
 
-//declaring variables 
+//requiring all the divs and buttons for making queries with the help of query selector 
 const choiceButtons=document.querySelectorAll('.choice-btn');
 const gameDiv=document.querySelector('.game');
 const resultsDiv=document.querySelector('.results');
@@ -46,7 +46,7 @@ const headerContent=document.querySelector('.header')
 const winnerPlayagainBtn=document.querySelector('.play-btn')
 
 
-//the game logic how it works
+//giving choice so that user and computer can choose 
 choiceButtons.forEach(button =>{
   button.addEventListener('click',()=>{
     const choiceName=button.dataset.choice;
@@ -55,14 +55,15 @@ choiceButtons.forEach(button =>{
   })
  
 })
-//user choosing by clicking 
+//function so that user can choose 
 function choose(choice){
   const aichoice=aiChoose();
   displayResults([choice,aichoice])
   displayWinner([choice,aichoice])
 
 }
-//computer choice randomly 
+
+//function so that computer can choice randomly 
 function aiChoose(){
   const rand=Math.floor(Math.random() * CHOICES.length)
   return (CHOICES[rand])
@@ -86,7 +87,7 @@ function displayResults(results){
    
 }
 
-//function to display winner
+//display winner -- it's a function to displa winner
 function displayWinner(results){
   setTimeout(()=>{
     userWin =isWinner(results)
@@ -115,13 +116,13 @@ function displayWinner(results){
   
 }
 
-//function to check who is winner 
+//function to decide winner 
 function   isWinner(results){
   return (results[0].beats === results[1].name)
 }
 
 
-//play again button 
+//play button onclick  
 playAgainBtn.addEventListener('click',()=>{
   btnShowrules.className='rules-btn'
   gameDiv.classList.toggle('hidden');
@@ -150,7 +151,7 @@ nextButton.addEventListener('click',()=>{
 
 })
 
-//winner play again button logic
+//winner page play again button logic
 
 winnerPlayagainBtn.addEventListener('click',()=>{
   console.log('play again btn tapp');
@@ -166,7 +167,7 @@ winnerPlayagainBtn.addEventListener('click',()=>{
   resultsDiv.classList.toggle('show-winner');
 })
 
-//updating score board
+//here is a function to update scoreboard 
 function updateScoreboard() {
   localStorage.setItem('playerScore', playerScore);
   localStorage.setItem('computerScore', computerScore);
@@ -175,7 +176,7 @@ function updateScoreboard() {
   document.getElementById('ai-score').textContent = computerScore;
 }
 
-//show/hide rules button functioning 
+//button to show the rules and hide the rules 
 btnShowrules.addEventListener('click',()=>{
   console.log('rules button clicked');
   rules.classList.toggle('show-modal')
